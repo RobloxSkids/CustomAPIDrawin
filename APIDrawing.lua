@@ -1,7 +1,5 @@
 --[[
-
 Experience better Drawing, (Better Version of Drawing Library.)
-
 ]]--
 
 local Render = {}
@@ -34,6 +32,8 @@ local function Gradient(object, properties)
 
     gradient.Rotation = properties.Rotation or 0
     gradient.Parent = object
+    gradient.Enabled = properties.Visible ~= false
+
     if properties.AutoRotate then
         local Rotation_Speed = properties.RotationSpeed or 10
         local Start = tick()
@@ -44,6 +44,7 @@ local function Gradient(object, properties)
         end)
     end
 end
+
 
 local function Outline(object, color, thickness)
     local outline = Instance.new("UIStroke")
